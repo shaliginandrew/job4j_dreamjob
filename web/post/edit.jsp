@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ page import="ru.job4j.dream.store.Store" %>
-<%@ page import="ru.job4j.dream.model.Post" %>
+<%@ page import="ru.job4j.dreamjob.store.Store" %>
+<%@ page import="ru.job4j.dreamjob.model.Post" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,27 +22,23 @@
 </head>
 <body>
 <div class="container pt-3">
-
     <div class="row">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Вакансии
+                Новая вакансия.
             </div>
             <div class="card-body">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Названия</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <% for (Post post : Store.instOf().findAllPosts()) { %>
-                    <tr>
-                        <td><%= post.getName() %></td>
-                    </tr>
-                    <% } %>
-                    </tbody>
-                </table>
+                <form action="<%=request.getContextPath()%>/post/save" method="post">
+                    <div class="form-group">
+                        <label>Имя</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label>Описание</label>
+                        <input type="text" class="form-control" name="description">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </form>
             </div>
         </div>
     </div>
