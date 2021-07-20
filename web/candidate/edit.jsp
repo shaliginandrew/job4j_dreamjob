@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="ru.job4j.dreamjob.store.Store" %>
 <%@ page import="ru.job4j.dreamjob.model.Post" %>
@@ -41,7 +40,7 @@
                 <% } %>
             </div>
             <div class="card-body">
-                <form action="${pageContext.request.contextPath}/candidate/save?id=<%=candidate.getId()%>" method="post">
+                <form action="${pageContext.request.contextPath}/candidates.do?id=<%=candidate.getId()%>" method="post">
                     <div class="form-group">
                         <label>Имя</label>
                         <input type="text" class="form-control" name="name" value="<%=candidate.getName()%>">
